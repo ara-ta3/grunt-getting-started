@@ -29,6 +29,14 @@ module.exports = function(grunt) {
         watch:{
             files:'src/*.less',
             tasks:['less','csslint','cssmin']
+        },
+        connect:{
+            server:{
+                options:{
+                    port:8080,
+                    hostname:'127.0.0.1'
+                }
+            }
         }
     });
 
@@ -37,7 +45,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-csslint');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-connect');
 
     // tasks
-    grunt.registerTask('default', ['less', 'csslint', 'cssmin', 'watch']);
+    grunt.registerTask('default', ['less', 'csslint', 'cssmin', 'connect','watch']);
 };
